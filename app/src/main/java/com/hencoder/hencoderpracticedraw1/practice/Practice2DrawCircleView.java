@@ -10,7 +10,7 @@ import android.view.View;
 
 public class Practice2DrawCircleView extends View {
 
-    private Paint paint = new Paint();
+    private Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     public Practice2DrawCircleView(Context context) {
         super(context);
@@ -36,9 +36,25 @@ public class Practice2DrawCircleView extends View {
 //        练习内容：使用 canvas.drawCircle() 方法画圆
 //        一共四个圆：1.实心圆 2.空心圆 3.蓝色实心圆 4.线宽为 20 的空心圆
 
+        //实心圆
         paint.setColor(Color.BLACK);
-        canvas.drawCircle(300, 300, 300, paint);
+        canvas.drawCircle(300, 200, 150, paint);
 
+        //空心圆
+        paint.setStyle(Paint.Style.STROKE);
+        paint.setStrokeWidth(3.0f);
+        canvas.drawCircle(700, 200, 150, paint);
+
+        //蓝色实心圆
+        paint.setColor(Color.parseColor("#4A90E2"));
+        paint.setStyle(Paint.Style.FILL);
+        canvas.drawCircle(300, 550, 150, paint);
+
+        //线宽为 20 的空心圆
+        paint.setColor(Color.BLACK);
+        paint.setStrokeWidth(20);
+        paint.setStyle(Paint.Style.STROKE);
+        canvas.drawCircle(700, 550, 150, paint);
 
     }
 }
